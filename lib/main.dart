@@ -1,6 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:convert';
+
+//
+
+var lista = new List<int>.generate(10, (i) => i + 1);
 
 //_______________________________________________________________________________________________________________*/
 // INICIO MAIN
@@ -84,33 +90,33 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Center(
         child: Column(
-      
       children: <Widget>[
         Center(
           child: RaisedButton(
             color: Colors.white, // Cor do botão
             elevation: 0, // elevação do botão
-            onPressed: () { // inico função
-              Navigator.pushNamed( // pagina chamada da ação do btão
-                  context, '/second'); // Colola aqui a função de abrir a camera
+            onPressed: () {
+              // inico função
+              Navigator.pushNamed(
+                  // pagina chamada da ação do btão
+                  context,
+                  '/second'); // Colola aqui a função de abrir a camera
             }, // fim função
-            child: Container( // inicio container( para o botão)
-              //width: double.infinity, // largura infinita para o botão
+            child: Container(
+                // inicio container( para o botão)
+                //width: double.infinity, // largura infinita para o botão
 
-              margin: const EdgeInsets.all( 50), 
-              padding: const EdgeInsets.only(top: 30),
+                margin: const EdgeInsets.all(50),
+                padding: const EdgeInsets.only(top: 30),
                 child: Image.asset("images/QRCode.jpeg")
-              
-              
-              /*child: IconButton( // inserindo o icone do botão
+
+                /*child: IconButton( // inserindo o icone do botão
                 icon: const Icon(FontAwesomeIcons.qrcode, size: 150), // icone do FontAwesomeIcons
                 // Entrada do icone com o tamanho destinado
                 onPressed: () {},*/
-              ),
-            ),
+                ),
+          ),
         ),
-        
-        
         const Text(
           'Clique para abrir a Camera', //formatação e decoração dos texto
           textAlign: TextAlign.center,
@@ -248,44 +254,98 @@ class PaginaSalgadoCorpo extends StatefulWidget {
 
 class _PaginaSalgadoCorpoState extends State<PaginaSalgadoCorpo> {
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
+        child: Center(
       child: Column(
         children: [
           ListaProduto(
-            NomeProduto: 'Papell Higienico',
-            Ingredientes: 'Muita Arvore',
+            NomeProduto: 'goku',
+            Ingredientes: 'Créu',
             PrecoProduto: 'RS100,00',
             ProximaPagina: '/PaginaCarrinho',
           ),
           ListaProduto(
-            NomeProduto: 'Banana',
-            Ingredientes: 'Terra',
-            PrecoProduto: 'RS50,00',
-            ProximaPagina: '',
+            NomeProduto: 'goku1',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
           ),
           ListaProduto(
-            NomeProduto: 'Televisão',
-            Ingredientes: 'Lineu',
-            PrecoProduto: 'RS2,50',
-            ProximaPagina: '',
+            NomeProduto: 'goku2',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
           ),
           ListaProduto(
-            NomeProduto: 'Neo Arena',
-            Ingredientes: 'Corinthians',
-            PrecoProduto: 'RS2,50',
-            ProximaPagina: '',
+            NomeProduto: 'goku3',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
           ),
           ListaProduto(
-            NomeProduto: 'Televisão',
-            Ingredientes: 'Lineu',
-            PrecoProduto: 'RS2,50',
-            ProximaPagina: '',
+            NomeProduto: 'goku4',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
+          ),
+          ListaProduto(
+            NomeProduto: 'goku6',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
+          ),
+          ListaProduto(
+            NomeProduto: 'goku7',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
+          ),
+          ListaProduto(
+            NomeProduto: 'goku9',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
+          ),
+          ListaProduto(
+            NomeProduto: 'goku10',
+            Ingredientes: 'Créu',
+            PrecoProduto: 'RS100,00',
+            ProximaPagina: '/PaginaCarrinho',
           ),
         ],
       ),
-    );
+    ));
   }
+
+  /* <Widget>[
+
+ 
+   
+         Column(
+          children: [
+            
+            ListaProduto(
+              NomeProduto: 'Papell Higienico',
+              Ingredientes: 'Muita Arvore',
+              PrecoProduto: 'RS100,00',
+              ProximaPagina: '/PaginaCarrinho',
+            ),
+            ListaProduto(
+              NomeProduto: 'Papell Higienico',
+              Ingredientes: 'Muita Arvore',
+              PrecoProduto: 'RS100,00',
+              ProximaPagina: '/PaginaCarrinho',
+            ),
+            
+          ],
+        ),
+      
+
+
+       ]*/
+
 }
+
 // FIM CORPO SALGADO
 //_______________________________________________________________________________________________________________*/
 
@@ -302,15 +362,10 @@ class _CarrinhoState extends State<Carrinho> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: Container(
-            decoration:
-            BoxDecoration(
-             border: Border(
-              bottom: BorderSide(color: Colors.black, width: 5)
-              
-             )
-           ),
+            decoration: BoxDecoration(
+                border:
+                    Border(bottom: BorderSide(color: Colors.black, width: 5))),
             child: AppBar(
-              
               title: const Text(
                 'CONTA DA MESA', //formatação e decoração dos texto
                 textAlign: TextAlign.center,
@@ -342,56 +397,36 @@ class _CorpoCarrinhoState extends State<CorpoCarrinho> {
     return Container(
       child: Center(
           child: Column(
-            children: [
-        TituloConta(),
-        MostraCarrinho(Produto: 'Lineu', Preco: 'RS100,00'),
-        MostraCarrinho(Produto: 'RG', Preco: 'RS30,00'),
-        
-        Container(
-          
-          width: double.infinity,
-          height: 60,
-          decoration: BoxDecoration(color: Color.fromRGBO(0, 105, 146, 1.0),
-        
-           
-           
-           ),
-          child: Container(
-           
-            child: Center(
-              
-              child: Text(
-                'Meus pedidos', //formatação e decoração dos texto
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Bungee Inline', //fonte
-                  fontWeight: FontWeight.bold, //em negrito
-                  fontSize: 30.0, // tamanho
-                ),
+        children: [
+          TituloConta(),
+          MostraCarrinho(Produto: 'Lineu', Preco: 'RS100,00'),
+          MostraCarrinho(Produto: 'RG', Preco: 'RS30,00'),
+          Container(
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(0, 105, 146, 1.0),
               ),
-            ),
-          )
-          
-        ),
-
-        TituloConta(),
-        MostraCarrinho(Produto: 'Lineu', Preco: 'RS100,00'),
-        MostraCarrinho(Produto: 'RG', Preco: 'RS30,00'),
-        
-      ],
-      
-      
-
-      )
-      ),
-      
-      
-
-
+              child: Container(
+                child: Center(
+                  child: Text(
+                    'Meus pedidos', //formatação e decoração dos texto
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Bungee Inline', //fonte
+                      fontWeight: FontWeight.bold, //em negrito
+                      fontSize: 30.0, // tamanho
+                    ),
+                  ),
+                ),
+              )),
+          TituloConta(),
+          MostraCarrinho(Produto: 'Lineu', Preco: 'RS100,00'),
+          MostraCarrinho(Produto: 'RG', Preco: 'RS30,00'),
+        ],
+      )),
     );
-    
-    
   }
 }
 //_______________________________________________________________________________________________________________*/
@@ -436,12 +471,10 @@ class _AnuncioProdutoState extends State<AnuncioProduto> {
           color: Colors.white,
           border: Border.all(color: Color.fromRGBO(4, 53, 101, 1.0), width: 3)),
       margin: EdgeInsets.only(left: 20, right: 20, top: 30),
-     
       child: RaisedButton(
         color: Colors.white,
         child: Container(
             width: double.infinity,
-            
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -626,63 +659,70 @@ class _MostraCarrinhoState extends State<MostraCarrinho> {
 
 //_______________________________________________________________________________________________________________
 // INICIO FUNÇÃO TITULOCONTA
-class TituloConta extends StatelessWidget{
+class TituloConta extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Container(
-       
         child: Container(
-           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.black, width: 5))
-          ),
-          margin: EdgeInsets.only(top: 10),
-          padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-               'PRODUTO', //formatação e decoração dos texto
-                textAlign: TextAlign.left,
+      decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(color: Colors.black, width: 5))),
+      margin: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(left: 50, right: 50, bottom: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'PRODUTO', //formatação e decoração dos texto
+            textAlign: TextAlign.left,
 
-                style: TextStyle(
-                  color: Color.fromRGBO(4, 53, 101, 1.0),
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Bungee Inline', //fonte
-                  fontSize: 30.0, // tamanho
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  'PREÇO', //formatação e decoração dos texto
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    color: Color.fromRGBO(4, 53, 101, 1.0),
-                    fontFamily: 'Bungee Inline',
-                    fontWeight: FontWeight.bold, //fonte
-                    fontSize: 30.0, // tamanho
-                  ),
-                ),
-              ),
-            ],
+            style: TextStyle(
+              color: Color.fromRGBO(4, 53, 101, 1.0),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Bungee Inline', //fonte
+              fontSize: 30.0, // tamanho
+            ),
           ),
-        ));
-
+          Expanded(
+            child: Text(
+              'PREÇO', //formatação e decoração dos texto
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                color: Color.fromRGBO(4, 53, 101, 1.0),
+                fontFamily: 'Bungee Inline',
+                fontWeight: FontWeight.bold, //fonte
+                fontSize: 30.0, // tamanho
+              ),
+            ),
+          ),
+        ],
+      ),
+    ));
   }
-
 }
 
 // FIM FUNÇÃO TITULOCONTA
 //_______________________________________________________________________________________________________________
 
- 
-
 //_______________________________________________________________________________________________________________
 // FUNÇÃO DE LISTAR OS PRODUTOS NO CARRINHO
+List<CarrinhoCompra> ListaTotal;
 
-class AdicionaCarrinho {
-  
+class CarrinhoCompra {
+  Float produto;
+  Float preco;
+  int i = 1;
+  CarrinhoCompra temp;
+  //Construtor
+  CarrinhoCompra({this.produto, this.preco});
 
- 
- 
- 
+  void ListaCarrinhoCompra(Float prod, Float prec) {
+    temp.produto = prod;
+    temp.preco = prec;
+
+    if (ListaTotal.length == null) {
+      var ListaDeCompras =
+          new List<CarrinhoCompra>.generate(1, (index) => null);
+    }
+    ListaTotal.add(temp);
+  }
 }
