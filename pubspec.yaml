@@ -40,6 +40,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+    - family: 'BungeeInline'
+      fonts:
+        - asset: fonts/BungeeInline.ttf
+    - family: 'Aclonica'
+      fonts:
+        - asset: fonts/Aclonica.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -48,8 +55,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - images/
-  #   - images/a_dot_ham.jpeg
+    - imagens/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -76,7 +82,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-fonts:
-  - family: 'Bungee Inline'
-    fonts:
-      - asset: fonts/BungeeInline_Regular.ttf
