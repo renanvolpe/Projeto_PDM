@@ -47,6 +47,9 @@ flutter:
     - family: 'Aclonica'
       fonts:
         - asset: fonts/Aclonica.ttf
+    - family: 'Tajawal'
+      fonts:
+        - asset: fonts/Tajawal.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

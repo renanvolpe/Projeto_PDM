@@ -31,7 +31,7 @@ class Index extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: appbarKook(),
         body: const TelaInicial(),
-        drawer: menuKook(),
+        drawer: menuKook(context),
       )
     );
   }
@@ -60,7 +60,7 @@ class _TelaInicial extends State<TelaInicial> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1.0),
-                  fontSize: 21.0,
+                  fontSize: 24.0,
                   fontFamily: 'Aclonica'
                 ),
               ),

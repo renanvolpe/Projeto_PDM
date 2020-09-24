@@ -14,7 +14,7 @@ class _Produtos extends State<Produtos> {
     return Scaffold(
       appBar: appbarKook(),
       body: TelaProdutos(),
-      drawer: menuKook(),
+      drawer: menuKook(context),
     );
   }
 }
@@ -38,22 +38,22 @@ class _TelaProdutos extends State<TelaProdutos> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1.0),
-                  fontSize: 21.0,
+                  fontSize: 24.0,
                   fontFamily: 'Aclonica'
                 ),
               ),
             ),
           ),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
-          Produto(nome: 'Produto', ingredientes: 'Ingredientes', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
+          Produto(nome: 'Produto', ingredientes: 'Ingredientes...', preco: 'RS20,00', proximaPagina: '/minhaConta'),
         ],
       )
     );
@@ -94,18 +94,18 @@ class _Produto extends State<Produto> {
                 Text(widget.nome,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color.fromRGBO(4, 53, 101, 1.0),
-                    fontFamily: 'Bungee Inline', 
+                    color: Colors.black,
+                    fontFamily: 'Tajawal', 
                     fontWeight: FontWeight.bold,
-                    fontSize: 24.0,
+                    fontSize: 22.0,
                   ),
                 ),
                 Text(
                   widget.ingredientes,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color.fromRGBO(4, 53, 101, 1.0),
-                    fontFamily: 'Bungee Inline',
+                    color: Colors.black,
+                    fontFamily: 'Tajawal',
                     fontSize: 18.0, 
                   ),
                 ),
@@ -115,10 +115,9 @@ class _Produto extends State<Produto> {
               widget.preco,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Color.fromRGBO(4, 53, 101, 1.0),
-                fontFamily: 'Bungee Inline',
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+                color: Colors.black,
+                fontFamily: 'Tajawal',
+                fontSize: 20.0,
               ),
             )
           ],

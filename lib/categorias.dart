@@ -15,7 +15,7 @@ class _Categorias extends State<Categorias> {
     return Scaffold(
       appBar: appbarKook(),
       body: TelaCategorias(),
-      drawer: menuKook(),
+      drawer: menuKook(context),
     );
   }
 }
@@ -40,7 +40,7 @@ class _TelaCategorias extends State<TelaCategorias> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1.0),
-                  fontSize: 21.0,
+                  fontSize: 24.0,
                   fontFamily: 'Aclonica'
                 ),
               ),
