@@ -66,8 +66,6 @@ class _TelaConta extends State<TelaConta> {
             TituloConta(),
             Pedidos(produto: 'Coxinha', preco: '4,00'),
             Pedidos(produto: 'Coca-Cola', preco: 'RS30,00'),
-            Pedidos(produto: 'Coca-Cola', preco: 'RS30,00'),
-            Pedidos(produto: 'Coca-Cola', preco: 'RS30,00'),
             Container(
               height: 60,
               decoration: BoxDecoration(
