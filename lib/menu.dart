@@ -9,7 +9,7 @@ Container menuKook(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         RaisedButton(
-          onPressed: () { Navigator.pushNamed(context, '/'); } ,
+          onPressed: () { Navigator.pushNamed(context, '/index'); } ,
           color: Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +54,7 @@ Container menuKook(BuildContext context) {
           ),
         ),
         RaisedButton(
-          onPressed: () { Navigator.pushNamed(context, '/'); },
+          onPressed: () { Navigator.pushNamed(context, '/perfil'); },
           color: Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
