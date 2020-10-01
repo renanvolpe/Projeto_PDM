@@ -28,67 +28,109 @@ class Index extends StatelessWidget {
         '/conta': (context) => Conta(), // Define rota para tela da Conta
       },
       home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: appbarKook(),
-        body: const TelaInicial(),
-        drawer: menuKook(context),
+        backgroundColor: Colors.black,
+        body: const Login(),
       )
     );
   }
 }
 
-class TelaInicial extends StatefulWidget {
-  const TelaInicial({Key key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key key}) : super(key: key);
   @override
-  _TelaInicial createState() => _TelaInicial();
+  _Login createState() => _Login();
 }
 
-class _TelaInicial extends State<TelaInicial> {
+class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    
+    final emailField = TextField(
+      obscureText: false,
+      style: TextStyle(
+        fontFamily: 'Bun',
+        fontSize: 20.0,
+      ),
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: 'E-mail',
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+    );
+
+    final passwordField = TextField(
+      obscureText: true,
+      style: TextStyle(
+        fontFamily: 'Bun',
+        fontSize: 20.0,
+      ),
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: 'Senha',
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+    );
+
+    final buttonLogin = ButtonTheme(
+      minWidth: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+      child: RaisedButton(
+        color: Color.fromRGBO(20, 55, 154, 0.9),
+        child: Text('Entrar',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20.0,
+            fontFamily: 'Bun',
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        onPressed: () { print('Fazendo Login'); },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
+    );
+
+    final buttonCadastro = ButtonTheme(
+      minWidth: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+      child: RaisedButton(
+        color: Color.fromRGBO(20, 55, 154, 0.9),
+        child: Text('Cadastre-se',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20.0,
+            fontFamily: 'Bun',
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        onPressed: () { print('Cadastrando'); },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
+    );
+
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget> [
-          Container(
-            color: Color.fromRGBO(4, 52, 101, 1.0),
-            height: 60,
-            child: Center(
-              child: Text('Bem-vindo(a), [usuário]', 
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color.fromRGBO(255, 255, 255, 1.0),
-                  fontSize: 24.0,
-                  fontFamily: 'Aclonica'
-                ),
-              ),
-            ),
+      child: SingleChildScrollView (
+        child: Container(
+          color: Color.fromRGBO(255, 255, 255, 1.0),
+          padding: EdgeInsets.all(40.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 150.0, child: Image.asset('imagens/logo1.png', fit: BoxFit.contain)),
+              SizedBox(height: 30.0,),emailField,
+              SizedBox(height: 30.0,),passwordField,
+              SizedBox(height: 30.0,),buttonLogin,
+              SizedBox(height: 30.0,),buttonCadastro,
+            ],
           ),
-          Container(
-            child: Column(
-              children: [
-                Text('Clique no ícone para abrir a câmera.',
-                  style: TextStyle(
-                    fontFamily: 'Aclonica',
-                    fontSize: 18.0,
-                  ),
-                ),
-                RaisedButton(
-                  color: Colors.white,
-                  elevation: 0,
-                  onPressed: () { Navigator.pushNamed(context, '/categorias'); },
-                  child: Icon(MdiIcons.qrcode, size: 120.0,),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            color: Color.fromRGBO(0, 0, 0, 1.0),
-            height: 60.0,
-          )
-        ],
+        ),
       ),
     );
   }
