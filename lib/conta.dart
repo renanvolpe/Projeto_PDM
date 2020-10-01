@@ -64,8 +64,7 @@ class _TelaConta extends State<TelaConta> {
               ),
             ),
             TituloConta(),
-            Pedidos(produto: 'Coxinha', preco: '4,00'),
-            Pedidos(produto: 'Coca-Cola', preco: 'RS30,00'),
+            GerarCarrinho(comprinhas: comprinha),
             Container(
               height: 60,
               decoration: BoxDecoration(
@@ -86,8 +85,7 @@ class _TelaConta extends State<TelaConta> {
               )
             ),
             TituloConta(),
-            Pedidos(produto: 'Coxinha', preco: 'RS4,00'),
-            Pedidos(produto: 'Coca-Cola', preco: 'RS30,00'),
+            GerarCarrinho(comprinhas: comprinha),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -143,10 +141,9 @@ class _TelaConta extends State<TelaConta> {
 }
 
 class Pedidos extends StatefulWidget {
-  final String produto;
-  final String preco;
+  final Compras comprinhas;
 
-  Pedidos({@required this.produto, this.preco});
+  Pedidos({@required this.comprinhas});
   @override
   _Pedidos createState() => _Pedidos();
 }
@@ -164,7 +161,7 @@ class _Pedidos extends State<Pedidos> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                widget.produto,
+                widget.comprinhas.produto,
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Tajawal',
@@ -172,7 +169,7 @@ class _Pedidos extends State<Pedidos> {
                 ),
               ),
               Text(
-                widget.preco,
+                widget.comprinhas.preco.toString(),
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Tajawal',
@@ -219,5 +216,44 @@ class TituloConta extends StatelessWidget {
         ),
       )
     );
+  }
+}
+
+List<Compras> comprinha = <Compras>[  
+  Compras(produto: 'Lineu', preco: 2300),  
+  Compras(produto: 'Notass', preco: 10),   
+  Compras(produto: 'Vitao', preco: 1),   
+  Compras(produto: 'Minha Nota', preco: 10),  
+  Compras(produto: 'Papel Higienico', preco: 5),   
+  Compras(produto: 'Arroz', preco: 23)
+];
+
+class Compras {  
+  Compras({this.produto, this.preco});  
+  final String produto;  
+  final int preco;
+}
+
+class GerarCarrinho extends StatefulWidget {  
+  final List<Compras> comprinhas;
+  
+  GerarCarrinho({@required this.comprinhas});  
+  @override  
+  _GerarCarrinho createState() => _GerarCarrinho();
+}
+
+class _GerarCarrinho extends State<GerarCarrinho> {  
+  @override  
+  Widget build(BuildContext context) {    
+    return Container(      
+      child: ListView.builder(        
+        controller: ScrollController(), // IMPORTANTEEEEE        
+        shrinkWrap: true,        
+        itemCount: widget.comprinhas.length,        
+        itemBuilder: (context, i) {                         
+          return Pedidos(comprinhas: widget.comprinhas[i]);       
+        },      
+      ),    
+    );  
   }
 }
