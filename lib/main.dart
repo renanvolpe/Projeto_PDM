@@ -54,20 +54,20 @@ class _Login extends State<Login> {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: 'E-mail',
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );
 
     final passwordField = TextField(
       obscureText: true,
       style: TextStyle(
-        fontFamily: 'Bun',
+        fontFamily: 'Abel',
         fontSize: 20.0,
       ),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: 'Senha',
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );
 
@@ -87,7 +87,7 @@ class _Login extends State<Login> {
         ),
         onPressed: () { print('Fazendo Login'); },
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
       ),
     );
@@ -108,7 +108,7 @@ class _Login extends State<Login> {
         ),
         onPressed: () { print('Cadastrando'); },
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
       ),
     );
@@ -116,18 +116,35 @@ class _Login extends State<Login> {
     return Center(
       child: SingleChildScrollView (
         child: Container(
-          color: Color.fromRGBO(255, 255, 255, 1.0),
+          color: Color.fromRGBO(238, 238, 238, 1.0),
           padding: EdgeInsets.all(40.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 150.0, child: Image.asset('imagens/logo1.png', fit: BoxFit.contain)),
-              SizedBox(height: 30.0,),emailField,
-              SizedBox(height: 30.0,),passwordField,
-              SizedBox(height: 30.0,),buttonLogin,
-              SizedBox(height: 30.0,),buttonCadastro,
+              Text('Bem-vindo ao KooK!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Aclonica',
+                  fontSize: 25.0,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(height: 150.0, child: Image.asset('imagens/logo1.png', fit: BoxFit.contain)),
+              ),
+              Text('Faça login para continuar',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Aclonica',
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(height: 20.0,),emailField,
+              SizedBox(height: 20.0,),passwordField,
+              SizedBox(height: 20.0,),buttonLogin,
+              SizedBox(height: 20.0,),buttonCadastro,
             ],
           ),
         ),
