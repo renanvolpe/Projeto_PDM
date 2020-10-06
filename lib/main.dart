@@ -8,6 +8,8 @@ import 'cadastro.dart';
 
 void main() => runApp(MyApp());
 
+final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class Index extends StatelessWidget {
         '/perfil': (context) => Perfil(), // Define rota para tela da Conta
       },
       home: Scaffold(
+        key: _scaffoldKey,
         backgroundColor: Colors.black,
         body: const Login(),
       )

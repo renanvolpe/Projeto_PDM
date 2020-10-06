@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'controller.dart';
+
+final _formKey = GlobalKey<FormState>();
 
 Future modalCadastro(BuildContext context) {
+  TextEditingController _nomeController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _cpfController = TextEditingController();
+  TextEditingController _senhaController = TextEditingController();
+  TextEditingController _confirmacaoController = TextEditingController();
+
   return showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -39,11 +48,18 @@ Future modalCadastro(BuildContext context) {
                       ),
                     ),
                   ),
-                  textInput('Nome e Sobrenome', false),
-                  textInput('E-mail', false),
-                  textInput('CPF', false),
-                  textInput('Senha', true),
-                  textInput('Confirmar Senha', true),
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        textInput('Nome e Sobrenome', false, _nomeController),
+                        textInput('E-mail', false, _emailController),
+                        textInput('CPF', false, _cpfController),
+                        textInput('Senha', true, _senhaController),
+                        textInput('Confirmar Senha', true, _confirmacaoController),
+                      ],
+                    ),
+                  ),
                   SizedBox(height: 20.0,),
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
@@ -61,7 +77,19 @@ Future modalCadastro(BuildContext context) {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        onPressed: () { Navigator.pushNamed(context, '/index'); },
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            //Scaffold.of(context).showSnackBar(SnackBar(content: Text('Processing Data')));
+                            print('teste');
+                          }
+                          //if(_nomeController.text.isEmpty || _emailController.text.isEmpty ||
+                          //  _cpfController.text.isEmpty || _senhaController.text.isEmpty ||
+                          //  _confirmacaoController.text.isEmpty){
+
+                            //_snackBar(context, 'Preencha todos os campos');
+                          //}
+                          //Controller.addUser();
+                        },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -78,10 +106,17 @@ Future modalCadastro(BuildContext context) {
   );
 }
 
-Padding textInput(placeholder, visivel) {
+Padding textInput(placeholder, visivel, input) {
   return Padding(
     padding: EdgeInsets.only(top: 20.0),
-    child: TextField(
+    child: TextFormField(
+      validator: (value) {
+        if (value.isEmpty) {
+          return "Preencha este campo";
+        }
+        return null;
+      },
+      controller: input,
       obscureText: visivel,
       style: TextStyle(
         fontFamily: 'Abel',
