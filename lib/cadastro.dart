@@ -8,7 +8,6 @@ Future modalCadastro(BuildContext context) {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _cpfController = TextEditingController();
   TextEditingController _senhaController = TextEditingController();
-  TextEditingController _confirmacaoController = TextEditingController();
 
   return showDialog(
     context: context,
@@ -56,7 +55,6 @@ Future modalCadastro(BuildContext context) {
                         textInput('E-mail', false, _emailController),
                         textInput('CPF', false, _cpfController),
                         textInput('Senha', true, _senhaController),
-                        textInput('Confirmar Senha', true, _confirmacaoController),
                       ],
                     ),
                   ),
@@ -79,16 +77,9 @@ Future modalCadastro(BuildContext context) {
                         ),
                         onPressed: () {
                           if (_formKey.currentState.validate()) {
-                            //Scaffold.of(context).showSnackBar(SnackBar(content: Text('Processing Data')));
-                            print('teste');
+                            print(Controller.addUser(_nomeController.text, _emailController.text,
+                            _cpfController.text, _senhaController.text));
                           }
-                          //if(_nomeController.text.isEmpty || _emailController.text.isEmpty ||
-                          //  _cpfController.text.isEmpty || _senhaController.text.isEmpty ||
-                          //  _confirmacaoController.text.isEmpty){
-
-                            //_snackBar(context, 'Preencha todos os campos');
-                          //}
-                          //Controller.addUser();
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),

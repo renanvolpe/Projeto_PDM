@@ -1,5 +1,3 @@
-import 'dart:html';
-
 class Cliente {
   int id;
   String nome;
