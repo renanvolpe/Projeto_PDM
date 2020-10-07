@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:kook/appbar.dart';
 import 'package:kook/menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'controller.dart';
+
+void initState() {
+  Controller.getCat(1);
+}
 
 class Categorias extends StatefulWidget {
   const Categorias({Key key}) : super(key: key);

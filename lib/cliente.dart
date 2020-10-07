@@ -1,23 +1,23 @@
 class Cliente {
-  int id;
-  String nome;
-  String email;
-  String cpf;
-  String senha;
-  bool confirmado;
-  int idMesa;
+  final int id;
+  final String nome;
+  final String email;
+  final String cpf;
+  final String senha;
+  final bool confirmado;
+  final int idMesa;
 
   Cliente({this.id, this.nome, this.email, this.cpf, this.senha, this.confirmado, this.idMesa});
 
   factory Cliente.fromJson(Map<String, dynamic> json){
     return Cliente(
-      id: json['id'] as int,
-      nome: json['nome'] as String,
-      email: json['nome'] as String,
-      cpf: json['nome'] as String,
-      senha: json['nome'] as String,
-      confirmado: json['nome'] as bool,
-      idMesa: json['nome'] as int,
+      id: json['id_cliente'] as int,
+      nome: json['nome_cliente'] as String,
+      email: json['email_cliente'] as String,
+      cpf: json['cpf_cliente'] as String,
+      senha: json['senha_cliente'] as String,
+      confirmado: json['confirmado_cliente'] as bool,
+      idMesa: json['cliente_id_mesa'] as int,
     );
   }
 }

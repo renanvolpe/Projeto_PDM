@@ -14,7 +14,7 @@ Future modalCadastro(BuildContext context) {
     builder: (BuildContext context) {
       return AlertDialog(
         content: SingleChildScrollView(
-                  child: Stack(
+          child: Stack(
             overflow: Overflow.visible,
             children: <Widget>[
               Positioned(
@@ -77,8 +77,8 @@ Future modalCadastro(BuildContext context) {
                         ),
                         onPressed: () {
                           if (_formKey.currentState.validate()) {
-                            print(Controller.addUser(_nomeController.text, _emailController.text,
-                            _cpfController.text, _senhaController.text));
+                            Controller.addUser(_nomeController.text, _emailController.text,
+                            _cpfController.text, _senhaController.text);
                           }
                         },
                         shape: RoundedRectangleBorder(

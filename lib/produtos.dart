@@ -47,12 +47,34 @@ class _TelaProdutos extends State<TelaProdutos> {
         GerarProdutos(
               itensinhos: itensinhos,
             ),
-            GerarProdutos(
-              itensinhos: itensinhos,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    onPressed: () { Navigator.pushNamed(context, '/conta'); },
+                    color: Color.fromRGBO(4, 52, 101, 1.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      side: BorderSide(color: Color.fromRGBO(0, 105, 146, 1.0))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25.0, bottom: 25.0),
+                      child: Text('Prosseguir para os Pedidos',
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1.0),
+                          fontSize: 20.0,
+                          fontFamily: 'Aclonica'
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                
+              ],
             ),
-            GerarProdutos(
-              itensinhos: itensinhos,
-            ),
+           
       ],
     ));
   }
@@ -77,7 +99,7 @@ class _Produto extends State<Produto> {
         decoration: BoxDecoration(
             border:
                 Border(bottom: BorderSide(color: Colors.black12, width: 2))),
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.only(top: 20, bottom: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -88,9 +110,8 @@ class _Produto extends State<Produto> {
                   widget.itensinhos.nomeProduto,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color.fromRGBO(4, 53, 101, 1.0),
-                    fontFamily: 'Bungee Inline',
-                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontFamily: 'Aclonica',
                     fontSize: 24.0,
                   ),
                 ),
@@ -98,23 +119,35 @@ class _Produto extends State<Produto> {
                   widget.itensinhos.ingreditenteProduto,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color.fromRGBO(4, 53, 101, 1.0),
-                    fontFamily: 'Bungee Inline',
+                    color: Colors.black,
+                    fontFamily: 'Tajawal',
                     fontSize: 18.0,
                   ),
                 ),
               ],
             ),
-            Text(
-              widget.itensinhos.precoProduto.toString(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color.fromRGBO(4, 53, 101, 1.0),
-                fontFamily: 'Bungee Inline',
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+            
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  
+                   Text(
+                    "R\$"+widget.itensinhos.precoProduto.toString()+",00",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Tajawal',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                       ),
+                    ),
+                    IconeQuantidade()
+                ],
               ),
             ),
+            
+           
             
             
           ],
@@ -129,12 +162,16 @@ class _Produto extends State<Produto> {
   }
 }
 
+
+
 class Itens {
   Itens(
       {@required this.nomeProduto,
       this.ingreditenteProduto,
-      this.precoProduto});
-
+      this.precoProduto,
+      this.quantidade});
+      
+  int quantidade;
   String nomeProduto;
   String ingreditenteProduto;
   int precoProduto;
@@ -163,7 +200,7 @@ List<Itens> itensinhos = <Itens>[
       ingreditenteProduto: 'kakaroto',
       precoProduto: 100),
   Itens(
-      nomeProduto: 'bolo de cenoura',
+      nomeProduto: 'bolo ',
       ingreditenteProduto: 'farofa de trigo',
       precoProduto: 100),
   Itens(
@@ -224,6 +261,39 @@ class _GerarProdutos extends State<GerarProdutos> {
           return Produto(itensinhos: widget.itensinhos[i]);
         },
       ),
+    );
+  }
+}
+
+class IconeQuantidade extends StatefulWidget {
+ 
+
+  IconeQuantidade();
+  @override
+  _IconeQuantidade createState() => _IconeQuantidade();
+}
+
+class _IconeQuantidade extends State<IconeQuantidade> {
+   int quantidade = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          IconButton(icon: Icon(Icons.add_circle), onPressed: (){
+                         setState(() {
+                           quantidade +=1;
+                         }); 
+                        }),
+                        Text('$quantidade'),
+                        IconButton(icon: Icon(Icons.do_not_disturb_on), onPressed: (){
+                     setState(() {
+                       quantidade -=1;
+                     }); 
+                    }),
+        ],
+      ),
+                    
     );
   }
 }
